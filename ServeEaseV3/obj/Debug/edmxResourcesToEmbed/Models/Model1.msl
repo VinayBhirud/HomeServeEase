@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dacProjectModelStoreContainer" CdmEntityContainer="dacProjectEntities">
+    <EntitySetMapping Name="addresses">
+      <EntityTypeMapping TypeName="dacProjectModel.address">
+        <MappingFragment StoreEntitySet="addresses">
+          <ScalarProperty Name="address_id" ColumnName="address_id" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="district" ColumnName="district" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="address1" ColumnName="address" />
+          <ScalarProperty Name="pin_code" ColumnName="pin_code" />
+          <ScalarProperty Name="dummy_column1" ColumnName="dummy_column1" />
+          <ScalarProperty Name="dummy_column2" ColumnName="dummy_column2" />
+          <ScalarProperty Name="dummy_column3" ColumnName="dummy_column3" />
+          <ScalarProperty Name="dummy_column4" ColumnName="dummy_column4" />
+          <ScalarProperty Name="dummy_column5" ColumnName="dummy_column5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="appointments">
+      <EntityTypeMapping TypeName="dacProjectModel.appointment">
+        <MappingFragment StoreEntitySet="appointments">
+          <ScalarProperty Name="apt_id" ColumnName="apt_id" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="sp_id" ColumnName="sp_id" />
+          <ScalarProperty Name="ord_description" ColumnName="ord_description" />
+          <ScalarProperty Name="order_date" ColumnName="order_date" />
+          <ScalarProperty Name="apt_date" ColumnName="apt_date" />
+          <ScalarProperty Name="apt_status" ColumnName="apt_status" />
+          <ScalarProperty Name="dummy_column1" ColumnName="dummy_column1" />
+          <ScalarProperty Name="dummy_column2" ColumnName="dummy_column2" />
+          <ScalarProperty Name="dummy_column3" ColumnName="dummy_column3" />
+          <ScalarProperty Name="dummy_column4" ColumnName="dummy_column4" />
+          <ScalarProperty Name="dummy_column5" ColumnName="dummy_column5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="dacProjectModel.customer">
+        <MappingFragment StoreEntitySet="customers">
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="address_id" ColumnName="address_id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="reg_date" ColumnName="reg_date" />
+          <ScalarProperty Name="profile_pic" ColumnName="profile_pic" />
+          <ScalarProperty Name="dummy_column1" ColumnName="dummy_column1" />
+          <ScalarProperty Name="dummy_column2" ColumnName="dummy_column2" />
+          <ScalarProperty Name="dummy_column3" ColumnName="dummy_column3" />
+          <ScalarProperty Name="dummy_column4" ColumnName="dummy_column4" />
+          <ScalarProperty Name="dummy_column5" ColumnName="dummy_column5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payment_details">
+      <EntityTypeMapping TypeName="dacProjectModel.payment_details">
+        <MappingFragment StoreEntitySet="payment_details">
+          <ScalarProperty Name="pd_id" ColumnName="pd_id" />
+          <ScalarProperty Name="bank_name" ColumnName="bank_name" />
+          <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+          <ScalarProperty Name="ifsc_code" ColumnName="ifsc_code" />
+          <ScalarProperty Name="acc_no" ColumnName="acc_no" />
+          <ScalarProperty Name="card_number" ColumnName="card_number" />
+          <ScalarProperty Name="card_expiry" ColumnName="card_expiry" />
+          <ScalarProperty Name="card_cvv" ColumnName="card_cvv" />
+          <ScalarProperty Name="dummy_column1" ColumnName="dummy_column1" />
+          <ScalarProperty Name="dummy_column2" ColumnName="dummy_column2" />
+          <ScalarProperty Name="dummy_column3" ColumnName="dummy_column3" />
+          <ScalarProperty Name="dummy_column4" ColumnName="dummy_column4" />
+          <ScalarProperty Name="dummy_column5" ColumnName="dummy_column5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reviews">
+      <EntityTypeMapping TypeName="dacProjectModel.review">
+        <MappingFragment StoreEntitySet="reviews">
+          <ScalarProperty Name="review_id" ColumnName="review_id" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="sp_id" ColumnName="sp_id" />
+          <ScalarProperty Name="apt_id" ColumnName="apt_id" />
+          <ScalarProperty Name="review1" ColumnName="review" />
+          <ScalarProperty Name="complaint" ColumnName="complaint" />
+          <ScalarProperty Name="ratings" ColumnName="ratings" />
+          <ScalarProperty Name="dummy_column1" ColumnName="dummy_column1" />
+          <ScalarProperty Name="dummy_column2" ColumnName="dummy_column2" />
+          <ScalarProperty Name="dummy_column3" ColumnName="dummy_column3" />
+          <ScalarProperty Name="dummy_column4" ColumnName="dummy_column4" />
+          <ScalarProperty Name="dummy_column5" ColumnName="dummy_column5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="service_providers">
+      <EntityTypeMapping TypeName="dacProjectModel.service_providers">
+        <MappingFragment StoreEntitySet="service_providers">
+          <ScalarProperty Name="sp_id" ColumnName="sp_id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="address_id" ColumnName="address_id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="reg_date" ColumnName="reg_date" />
+          <ScalarProperty Name="profile_pic" ColumnName="profile_pic" />
+          <ScalarProperty Name="profession" ColumnName="profession" />
+          <ScalarProperty Name="experience" ColumnName="experience" />
+          <ScalarProperty Name="expertise" ColumnName="expertise" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="charges" ColumnName="charges" />
+          <ScalarProperty Name="other_images" ColumnName="other_images" />
+          <ScalarProperty Name="dummy_column1" ColumnName="dummy_column1" />
+          <ScalarProperty Name="dummy_column2" ColumnName="dummy_column2" />
+          <ScalarProperty Name="dummy_column3" ColumnName="dummy_column3" />
+          <ScalarProperty Name="dummy_column4" ColumnName="dummy_column4" />
+          <ScalarProperty Name="dummy_column5" ColumnName="dummy_column5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transactions">
+      <EntityTypeMapping TypeName="dacProjectModel.transaction">
+        <MappingFragment StoreEntitySet="transactions">
+          <ScalarProperty Name="tx_id" ColumnName="tx_id" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="sp_id" ColumnName="sp_id" />
+          <ScalarProperty Name="pd_id" ColumnName="pd_id" />
+          <ScalarProperty Name="apt_id" ColumnName="apt_id" />
+          <ScalarProperty Name="payment_token_id" ColumnName="payment_token_id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="trans_status" ColumnName="trans_status" />
+          <ScalarProperty Name="payment_date" ColumnName="payment_date" />
+          <ScalarProperty Name="dummy_column1" ColumnName="dummy_column1" />
+          <ScalarProperty Name="dummy_column2" ColumnName="dummy_column2" />
+          <ScalarProperty Name="dummy_column3" ColumnName="dummy_column3" />
+          <ScalarProperty Name="dummy_column4" ColumnName="dummy_column4" />
+          <ScalarProperty Name="dummy_column5" ColumnName="dummy_column5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
