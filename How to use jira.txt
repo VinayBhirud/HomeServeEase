@@ -1,0 +1,18 @@
+How to use jira?
+steps:-
+	1. Create jira account
+	2. To create new project, select scrum and in that choose team managed option
+	3. After creating project, add team members by choosing option create team
+
+Steps for creating "sprint"  (sprint is a time boxed event, which has time frame of 1-4 weeks)
+	4. Epic (Is like sub-project in project) in which we have sprint. Epic is under timeline section
+	5. after making Epic, create issues (story) and add parent to that story (epic_name).
+	6. In story we can make multiple tasks, But we are able to create task only after starting sprint.
+	7. In task start creating different sub task.
+	8. We can assign work to team members. (reporter is a person who assign that work and assignee is the one who are going to 
+		complete that work)
+	9. We are able to give weightage also. (Higher the weightage == more important that work)
+	10. There are three stages under Board section. 
+		1.to do (the work which not started yet /Backlog
+		2.In progress (the work which is currently in development)
+		3.Done (the work which is completed)
