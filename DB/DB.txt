@@ -1,0 +1,130 @@
+CREATE TABLE [dbo].[users] (
+    [user_id]       INT           IDENTITY (1, 1) NOT NULL,
+    [first_name]    VARCHAR (50)  NOT NULL, 
+    [last_name]     VARCHAR (50)  NOT NULL,
+    [city]          VARCHAR (50)  NOT NULL,
+    [district]      VARCHAR (50)  NOT NULL,
+    [state]         VARCHAR (50)  NOT NULL,
+    [address]       VARCHAR (100) NOT NULL,
+    [pin_code]      VARCHAR (10)  NOT NULL,
+    [email]         VARCHAR (100) NOT NULL,
+    [mobile]        VARCHAR (20)  NOT NULL,
+    [password]      VARCHAR (100) NOT NULL,
+    [dob]           DATE          NOT NULL,
+    [role]          VARCHAR (20)  NOT NULL,
+    [reg_date]      DATE          NOT NULL,
+    [dummy_column1] VARCHAR (50)  NULL,
+    [dummy_column2] VARCHAR (50)  NULL,
+    [dummy_column3] VARCHAR (50)  NULL,
+    [dummy_column4] VARCHAR (50)  NULL,
+    [dummy_column5] VARCHAR (50)  NULL,
+    PRIMARY KEY CLUSTERED ([user_id] ASC),
+    UNIQUE NONCLUSTERED ([mobile] ASC),
+    UNIQUE NONCLUSTERED ([email] ASC)
+);
+
+----------------------------------------------------------------------------------------------
+CREATE TABLE customers (
+  cust_id INT IDENTITY(1, 1) PRIMARY KEY,
+  user_id INT NOT NULL,
+  apt_id INT NOT NULL,
+  review_id INT NOT NULL,
+  payment_id INT NOT NULL,
+  dummy_column1 VARCHAR(50),
+  dummy_column2 VARCHAR(50),
+  dummy_column3 VARCHAR(50),
+  dummy_column4 VARCHAR(50),
+  dummy_column5 VARCHAR(50),
+  FOREIGN KEY (user_id) REFERENCES users(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY (payment_id) REFERENCES transactions(payment_id),
+  FOREIGN KEY (apt_id) REFERENCES appointments(apt_id) ,
+  FOREIGN KEY (review_id) REFERENCES reviews(review_id) 
+);
+
+--------------------------------------------------------------------------------------------------------
+CREATE TABLE service_providers (
+  sp_id INT IDENTITY(1, 1) PRIMARY KEY,
+  user_id INT NOT NULL,
+  profession VARCHAR(50) NOT NULL,
+  experience INT NOT NULL,
+  expertise VARCHAR(100) NOT NULL,
+  description VARCHAR(200) NOT NULL,
+  review_id INT NOT NULL,
+  charges DECIMAL(10, 2) NOT NULL DEFAULT 0.0,
+  profile_pic VARCHAR(100) NOT NULL,
+  dummy_column1 VARCHAR(50) NULL,
+  dummy_column2 VARCHAR(50) NULL,
+  dummy_column3 VARCHAR(50),
+  dummy_column4 VARCHAR(50),
+  dummy_column5 VARCHAR(50) NULL,
+  FOREIGN KEY (user_id) REFERENCES users(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (review_id) REFERENCES reviews(review_id) 
+
+);
+--------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE [dbo].[appointments] (
+    [apt_id]          INT           IDENTITY (1, 1) NOT NULL,
+    [ord_description] VARCHAR (200) NULL,
+    [cust_id]         INT           NOT NULL,
+    [sp_id]           INT           NOT NULL,
+    [payment_id]      INT           NOT NULL,
+    [date]            DATE          NOT NULL,
+    [apt_status]      VARCHAR (20)  NOT NULL,
+    [dummy_column1]   VARCHAR (50)  NULL,
+    [dummy_column2]   VARCHAR (50)  NULL,
+    [dummy_column3]   VARCHAR (50)  NULL,
+    [dummy_column4]   VARCHAR (50)  NULL,
+    [dummy_column5]   VARCHAR (50)  NULL,
+    PRIMARY KEY CLUSTERED ([apt_id] ASC),
+    FOREIGN KEY ([cust_id]) REFERENCES [dbo].[customers] ([cust_id])  ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY ([sp_id]) REFERENCES [dbo].[service_providers] ([sp_id]),
+	FOREIGN KEY (payment_id) REFERENCES transactions(payment_id)
+);
+
+---------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE [dbo].[transactions] (
+    [payment_id]       INT             IDENTITY (1, 1) NOT NULL,
+    [cust_id]          INT             NULL,
+    [date]             DATE            NULL,
+    [apt_id]           INT             NULL,
+    [sp_id]            INT             NULL,
+    [payment_token_id] INT             NULL,
+    [amount]           DECIMAL (10, 2) NULL,
+    [trans_status]     VARCHAR (20)    NULL,
+    [dummy_column1]    VARCHAR (50)    NULL,
+    [dummy_column2]    VARCHAR (50)    NULL,
+    [dummy_column3]    VARCHAR (50)    NULL,
+    [dummy_column4]    VARCHAR (50)    NULL,
+    [dummy_column5]    VARCHAR (50)    NULL,
+    PRIMARY KEY CLUSTERED ([payment_id] ASC),
+    FOREIGN KEY ([cust_id]) REFERENCES [dbo].[customers] ([cust_id]) ,
+    FOREIGN KEY ([apt_id]) REFERENCES [dbo].[appointments] ([apt_id]),
+    FOREIGN KEY ([sp_id]) REFERENCES [dbo].[service_providers] ([sp_id])
+);
+
+---------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE [dbo].[reviews] (
+ 
+    [review_id]       INT     IDENTITY(1, 1) PRIMARY KEY      NOT NULL,
+    [user_id]       INT           NOT NULL,
+    [cust_id]       INT           NOT NULL,
+    [sp_id]         INT           NOT NULL,
+    [apt_id]        INT           NOT NULL,
+    [review]        VARCHAR (200) NULL,
+    [complaint]     VARCHAR (200) NULL,
+    [ratings]       INT           NULL,
+    [dummy_column1] VARCHAR (50)  NULL,
+    [dummy_column2] VARCHAR (50)  NULL,
+    [dummy_column3] VARCHAR (50)  NULL,
+    [dummy_column4] VARCHAR (50)  NULL,
+    [dummy_column5] VARCHAR (50)  NULL,
+    FOREIGN KEY ([user_id]) REFERENCES [dbo].[users] ([user_id]),
+    FOREIGN KEY ([cust_id]) REFERENCES [dbo].[customers] ([cust_id]) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY ([sp_id]) REFERENCES [dbo].[service_providers] ([sp_id]),
+    FOREIGN KEY ([apt_id]) REFERENCES [dbo].[appointments] ([apt_id])
+);
+
+----------------------------------------------------------------------------------------------------------------------------
