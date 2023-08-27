@@ -4,10 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ServeEaseV2.Controllers
+namespace ServeEaseV3.Controllers
 {
-
-    
     public class HomeController : Controller
     {
         public ActionResult Index()

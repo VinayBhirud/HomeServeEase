@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\dac2023\dacProjectFinal\fantastic-waffle\BackEnd\ServeEaseV2\Models\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\DAC Project\fantastic-waffle\BackEnd\ServeEaseV3\Models\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -4,25 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fc89644e130249bea8882353ea8de027" Name="Diagram1">
-        <EntityTypeShape EntityType="dacProjectModel.address" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dacProjectModel.appointment" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="dacProjectModel.customer" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="dacProjectModel.payment_details" Width="1.5" PointX="8.25" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="dacProjectModel.review" Width="1.5" PointX="7.5" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="dacProjectModel.service_providers" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="dacProjectModel.transaction" Width="1.5" PointX="10.5" PointY="7.25" IsExpanded="true" />
-        <AssociationConnector Association="dacProjectModel.FK__customers__addre__300424B4" ManuallyRouted="false" />
-        <AssociationConnector Association="dacProjectModel.FK__service_p__addre__2B3F6F97" ManuallyRouted="false" />
-        <AssociationConnector Association="dacProjectModel.FK__appointme__cust___3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="dacProjectModel.FK__appointme__sp_id__3F466844" ManuallyRouted="false" />
-        <AssociationConnector Association="dacProjectModel.FK__reviews__apt_id__5165187F" ManuallyRouted="false" />
-        <AssociationConnector Association="dacProjectModel.FK__transacti__apt_i__48CFD27E" ManuallyRouted="false" />
-        <AssociationConnector Association="dacProjectModel.FK__reviews__cust_id__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="dacProjectModel.FK__transacti__cust___45F365D3" ManuallyRouted="false" />
-        <AssociationConnector Association="dacProjectModel.FK__transacti__pd_id__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="dacProjectModel.FK__reviews__sp_id__5070F446" ManuallyRouted="false" />
-        <AssociationConnector Association="dacProjectModel.FK__transacti__sp_id__46E78A0C" ManuallyRouted="false" />
+      <Diagram DiagramId="ebd7098b3784482784ff64068af95aa6" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="myDacProjectModel.address" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDacProjectModel.appointment" Width="1.5" PointX="11.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDacProjectModel.customer" Width="1.5" PointX="9" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDacProjectModel.payment_details" Width="1.5" PointX="9" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDacProjectModel.review" Width="1.5" PointX="13.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDacProjectModel.service_providers" Width="1.5" PointX="9" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDacProjectModel.transaction" Width="1.5" PointX="13.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDacProjectModel.user" Width="1.5" PointX="6.75" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="myDacProjectModel.FK__addresses__dummy__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="myDacProjectModel.FK__appointme__cust___35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="myDacProjectModel.FK__appointme__sp_id__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="myDacProjectModel.FK__reviews__apt_id__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="myDacProjectModel.FK__transacti__apt_i__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="myDacProjectModel.FK__customers__user___2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="myDacProjectModel.FK__reviews__cust_id__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="myDacProjectModel.FK__payment_d__dummy__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="myDacProjectModel.FK__transacti__payme__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="myDacProjectModel.FK__reviews__sp_id__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="myDacProjectModel.FK__service_p__user___29572725" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

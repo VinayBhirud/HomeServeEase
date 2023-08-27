@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ServeEaseV2.Models
+namespace ServeEaseV3.Models
 {
     using System;
     using System.Collections.Generic;
@@ -21,6 +21,7 @@ namespace ServeEaseV2.Models
         }
     
         public int pd_id { get; set; }
+        public Nullable<int> user_id { get; set; }
         public string bank_name { get; set; }
         public string branch_name { get; set; }
         public string ifsc_code { get; set; }
@@ -34,6 +35,7 @@ namespace ServeEaseV2.Models
         public string dummy_column4 { get; set; }
         public string dummy_column5 { get; set; }
     
+        public virtual user user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<transaction> transactions { get; set; }
     }

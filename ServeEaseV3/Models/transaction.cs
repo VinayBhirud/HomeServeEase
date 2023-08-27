@@ -7,31 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ServeEaseV2.Models
+namespace ServeEaseV3.Models
 {
     using System;
     using System.Collections.Generic;
     
     public partial class transaction
     {
-        public int tx_id { get; set; }
-        public Nullable<int> cust_id { get; set; }
-        public Nullable<int> sp_id { get; set; }
-        public Nullable<int> pd_id { get; set; }
-        public int apt_id { get; set; }
+        public int transaction_id { get; set; }
+        public Nullable<int> payment_id { get; set; }
+        public Nullable<int> apt_id { get; set; }
+        public System.DateTime tx_date { get; set; }
         public Nullable<int> payment_token_id { get; set; }
         public Nullable<decimal> amount { get; set; }
-        public string trans_status { get; set; }
-        public System.DateTime payment_date { get; set; }
-        public string dummy_column1 { get; set; }
-        public string dummy_column2 { get; set; }
-        public string dummy_column3 { get; set; }
-        public string dummy_column4 { get; set; }
-        public string dummy_column5 { get; set; }
+        public string tx_status { get; set; }
     
         public virtual appointment appointment { get; set; }
-        public virtual customer customer { get; set; }
         public virtual payment_details payment_details { get; set; }
-        public virtual service_providers service_providers { get; set; }
     }
 }

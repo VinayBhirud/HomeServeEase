@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ServeEaseV2.Models
+namespace ServeEaseV3.Models
 {
     using System;
     using System.Collections.Generic;
@@ -21,11 +21,6 @@ namespace ServeEaseV2.Models
         public string review1 { get; set; }
         public string complaint { get; set; }
         public Nullable<int> ratings { get; set; }
-        public string dummy_column1 { get; set; }
-        public string dummy_column2 { get; set; }
-        public string dummy_column3 { get; set; }
-        public string dummy_column4 { get; set; }
-        public string dummy_column5 { get; set; }
     
         public virtual appointment appointment { get; set; }
         public virtual customer customer { get; set; }

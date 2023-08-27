@@ -1,20 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="dacProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="myDacProjectModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="myDacProjectModelStoreContainer">
+    <EntitySet Name="addresses" EntityType="myDacProjectModel.Store.addresses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="appointments" EntityType="myDacProjectModel.Store.appointments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="customers" EntityType="myDacProjectModel.Store.customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="payment_details" EntityType="myDacProjectModel.Store.payment_details" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="reviews" EntityType="myDacProjectModel.Store.reviews" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="service_providers" EntityType="myDacProjectModel.Store.service_providers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="transactions" EntityType="myDacProjectModel.Store.transactions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="users" EntityType="myDacProjectModel.Store.users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__addresses__dummy__2F10007B" Association="myDacProjectModel.Store.FK__addresses__dummy__2F10007B">
+      <End Role="users" EntitySet="users" />
+      <End Role="addresses" EntitySet="addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__appointme__cust___35BCFE0A" Association="myDacProjectModel.Store.FK__appointme__cust___35BCFE0A">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="appointments" EntitySet="appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__appointme__sp_id__36B12243" Association="myDacProjectModel.Store.FK__appointme__sp_id__36B12243">
+      <End Role="service_providers" EntitySet="service_providers" />
+      <End Role="appointments" EntitySet="appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__reviews__apt_id__4222D4EF" Association="myDacProjectModel.Store.FK__reviews__apt_id__4222D4EF">
+      <End Role="appointments" EntitySet="appointments" />
+      <End Role="reviews" EntitySet="reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK__transacti__apt_i__3D5E1FD2" Association="myDacProjectModel.Store.FK__transacti__apt_i__3D5E1FD2">
+      <End Role="appointments" EntitySet="appointments" />
+      <End Role="transactions" EntitySet="transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__customers__user___2C3393D0" Association="myDacProjectModel.Store.FK__customers__user___2C3393D0">
+      <End Role="users" EntitySet="users" />
+      <End Role="customers" EntitySet="customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__reviews__cust_id__403A8C7D" Association="myDacProjectModel.Store.FK__reviews__cust_id__403A8C7D">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="reviews" EntitySet="reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK__payment_d__dummy__398D8EEE" Association="myDacProjectModel.Store.FK__payment_d__dummy__398D8EEE">
+      <End Role="users" EntitySet="users" />
+      <End Role="payment_details" EntitySet="payment_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__transacti__payme__3C69FB99" Association="myDacProjectModel.Store.FK__transacti__payme__3C69FB99">
+      <End Role="payment_details" EntitySet="payment_details" />
+      <End Role="transactions" EntitySet="transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__reviews__sp_id__412EB0B6" Association="myDacProjectModel.Store.FK__reviews__sp_id__412EB0B6">
+      <End Role="service_providers" EntitySet="service_providers" />
+      <End Role="reviews" EntitySet="reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK__service_p__user___29572725" Association="myDacProjectModel.Store.FK__service_p__user___29572725">
+      <End Role="users" EntitySet="users" />
+      <End Role="service_providers" EntitySet="service_providers" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="addresses">
     <Key>
       <PropertyRef Name="address_id" />
     </Key>
     <Property Name="address_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="district" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="state" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="address" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="pin_code" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="dummy_column1" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column2" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column3" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column4" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column5" Type="varchar" MaxLength="50" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="city" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="district" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="state" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="address1" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="pin_code" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="dummy_column1" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="dummy_column2" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="dummy_column3" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="dummy_column4" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="dummy_column5" Type="varchar" Nullable="true" MaxLength="50" />
   </EntityType>
   <EntityType Name="appointments">
     <Key>
@@ -23,53 +78,36 @@
     <Property Name="apt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="cust_id" Type="int" Nullable="false" />
     <Property Name="sp_id" Type="int" Nullable="false" />
-    <Property Name="ord_description" Type="varchar" MaxLength="200" />
+    <Property Name="ord_description" Type="varchar" Nullable="true" MaxLength="200" />
     <Property Name="order_date" Type="datetime" Nullable="false" />
     <Property Name="apt_date" Type="datetime" Nullable="false" />
-    <Property Name="apt_status" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="dummy_column1" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column2" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column3" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column4" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column5" Type="varchar" MaxLength="50" />
+    <Property Name="apt_status" Type="varchar" Nullable="false" MaxLength="20" />
   </EntityType>
   <EntityType Name="customers">
     <Key>
       <PropertyRef Name="cust_id" />
     </Key>
     <Property Name="cust_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="first_name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="address_id" Type="int" Nullable="false" />
-    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="mobile" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="dob" Type="date" Nullable="false" />
-    <Property Name="reg_date" Type="datetime" Nullable="false" />
-    <Property Name="profile_pic" Type="varchar" MaxLength="100" />
-    <Property Name="dummy_column1" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column2" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column3" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column4" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column5" Type="varchar" MaxLength="50" />
+    <Property Name="user_id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="payment_details">
     <Key>
       <PropertyRef Name="pd_id" />
     </Key>
     <Property Name="pd_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="bank_name" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="branch_name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="ifsc_code" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="acc_no" Type="varchar" MaxLength="16" Nullable="false" />
-    <Property Name="card_number" Type="varchar" MaxLength="16" Nullable="false" />
-    <Property Name="card_expiry" Type="date" Nullable="false" />
-    <Property Name="card_cvv" Type="varchar" MaxLength="4" Nullable="false" />
-    <Property Name="dummy_column1" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column2" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column3" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column4" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column5" Type="varchar" MaxLength="50" />
+    <Property Name="user_id" Type="int" Nullable="true" />
+    <Property Name="bank_name" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="branch_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ifsc_code" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="acc_no" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="card_number" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="card_expiry" Type="datetime" Nullable="false" />
+    <Property Name="card_cvv" Type="varchar" Nullable="false" MaxLength="4" />
+    <Property Name="dummy_column1" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="dummy_column2" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="dummy_column3" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="dummy_column4" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="dummy_column5" Type="varchar" Nullable="true" MaxLength="50" />
   </EntityType>
   <EntityType Name="reviews">
     <Key>
@@ -79,65 +117,74 @@
     <Property Name="cust_id" Type="int" Nullable="false" />
     <Property Name="sp_id" Type="int" Nullable="false" />
     <Property Name="apt_id" Type="int" Nullable="false" />
-    <Property Name="review" Type="varchar" MaxLength="200" />
-    <Property Name="complaint" Type="varchar" MaxLength="200" />
-    <Property Name="ratings" Type="int" />
-    <Property Name="dummy_column1" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column2" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column3" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column4" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column5" Type="varchar" MaxLength="50" />
+    <Property Name="review1" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="complaint" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="ratings" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="service_providers">
     <Key>
       <PropertyRef Name="sp_id" />
     </Key>
     <Property Name="sp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="first_name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="address_id" Type="int" Nullable="false" />
-    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="mobile" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="dob" Type="date" Nullable="false" />
-    <Property Name="reg_date" Type="datetime" Nullable="false" />
-    <Property Name="profile_pic" Type="varchar" MaxLength="100" />
-    <Property Name="profession" Type="varchar" MaxLength="50" />
-    <Property Name="experience" Type="int" />
-    <Property Name="expertise" Type="varchar" MaxLength="100" />
-    <Property Name="description" Type="varchar" MaxLength="200" />
-    <Property Name="charges" Type="decimal" Precision="10" Scale="2" />
-    <Property Name="other_images" Type="varchar" MaxLength="100" />
-    <Property Name="dummy_column1" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column2" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column3" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column4" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column5" Type="varchar" MaxLength="50" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="profession" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="experience" Type="int" Nullable="true" />
+    <Property Name="expertise" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="description" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="charges" Type="decimal" Nullable="true" Precision="10" Scale="2" />
+    <Property Name="profile_pic" Type="varchar" Nullable="true" MaxLength="100" />
+    <Property Name="other_images" Type="varchar" Nullable="true" MaxLength="100" />
   </EntityType>
   <EntityType Name="transactions">
     <Key>
-      <PropertyRef Name="tx_id" />
+      <PropertyRef Name="transaction_id" />
     </Key>
-    <Property Name="tx_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="cust_id" Type="int" />
-    <Property Name="sp_id" Type="int" />
-    <Property Name="pd_id" Type="int" />
-    <Property Name="apt_id" Type="int" Nullable="false" />
-    <Property Name="payment_token_id" Type="int" />
-    <Property Name="amount" Type="decimal" Precision="10" Scale="2" />
-    <Property Name="trans_status" Type="varchar" MaxLength="20" />
-    <Property Name="payment_date" Type="datetime" Nullable="false" />
-    <Property Name="dummy_column1" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column2" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column3" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column4" Type="varchar" MaxLength="50" />
-    <Property Name="dummy_column5" Type="varchar" MaxLength="50" />
+    <Property Name="transaction_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="payment_id" Type="int" Nullable="true" />
+    <Property Name="apt_id" Type="int" Nullable="true" />
+    <Property Name="tx_date" Type="datetime" Nullable="false" />
+    <Property Name="payment_token_id" Type="int" Nullable="true" />
+    <Property Name="amount" Type="decimal" Nullable="true" Precision="10" Scale="2" />
+    <Property Name="tx_status" Type="varchar" Nullable="true" MaxLength="20" />
   </EntityType>
-  <Association Name="FK__appointme__cust___3E52440B">
-    <End Role="customers" Type="Self.customers" Multiplicity="1">
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="first_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="last_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="email" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="mobile" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="password" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="dob" Type="datetime" Nullable="false" />
+    <Property Name="role_id" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="reg_date" Type="datetime" Nullable="false" />
+    <Property Name="dummy_column1" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="dummy_column2" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="dummy_column3" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="dummy_column4" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="dummy_column5" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__addresses__dummy__2F10007B">
+    <End Role="users" Type="myDacProjectModel.Store.users" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="appointments" Type="Self.appointments" Multiplicity="*" />
+    <End Role="addresses" Type="myDacProjectModel.Store.addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="addresses">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__appointme__cust___35BCFE0A">
+    <End Role="customers" Type="myDacProjectModel.Store.customers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="appointments" Type="myDacProjectModel.Store.appointments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="customers">
         <PropertyRef Name="cust_id" />
@@ -147,9 +194,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__appointme__sp_id__3F466844">
-    <End Role="service_providers" Type="Self.service_providers" Multiplicity="1" />
-    <End Role="appointments" Type="Self.appointments" Multiplicity="*" />
+  <Association Name="FK__appointme__sp_id__36B12243">
+    <End Role="service_providers" Type="myDacProjectModel.Store.service_providers" Multiplicity="1" />
+    <End Role="appointments" Type="myDacProjectModel.Store.appointments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="service_providers">
         <PropertyRef Name="sp_id" />
@@ -159,37 +206,51 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__customers__addre__300424B4">
-    <End Role="addresses" Type="Self.addresses" Multiplicity="1">
+  <Association Name="FK__reviews__apt_id__4222D4EF">
+    <End Role="appointments" Type="myDacProjectModel.Store.appointments" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="customers" Type="Self.customers" Multiplicity="*" />
+    <End Role="reviews" Type="myDacProjectModel.Store.reviews" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="addresses">
-        <PropertyRef Name="address_id" />
+      <Principal Role="appointments">
+        <PropertyRef Name="apt_id" />
+      </Principal>
+      <Dependent Role="reviews">
+        <PropertyRef Name="apt_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__transacti__apt_i__3D5E1FD2">
+    <End Role="appointments" Type="myDacProjectModel.Store.appointments" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="transactions" Type="myDacProjectModel.Store.transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="appointments">
+        <PropertyRef Name="apt_id" />
+      </Principal>
+      <Dependent Role="transactions">
+        <PropertyRef Name="apt_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__customers__user___2C3393D0">
+    <End Role="users" Type="myDacProjectModel.Store.users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="customers" Type="myDacProjectModel.Store.customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
       </Principal>
       <Dependent Role="customers">
-        <PropertyRef Name="address_id" />
+        <PropertyRef Name="user_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__reviews__apt_id__5165187F">
-    <End Role="appointments" Type="Self.appointments" Multiplicity="1" />
-    <End Role="reviews" Type="Self.reviews" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="appointments">
-        <PropertyRef Name="apt_id" />
-      </Principal>
-      <Dependent Role="reviews">
-        <PropertyRef Name="apt_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__reviews__cust_id__4F7CD00D">
-    <End Role="customers" Type="Self.customers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="reviews" Type="Self.reviews" Multiplicity="*" />
+  <Association Name="FK__reviews__cust_id__403A8C7D">
+    <End Role="customers" Type="myDacProjectModel.Store.customers" Multiplicity="1" />
+    <End Role="reviews" Type="myDacProjectModel.Store.reviews" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="customers">
         <PropertyRef Name="cust_id" />
@@ -199,133 +260,56 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__reviews__sp_id__5070F446">
-    <End Role="service_providers" Type="Self.service_providers" Multiplicity="1" />
-    <End Role="reviews" Type="Self.reviews" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="service_providers">
-        <PropertyRef Name="sp_id" />
-      </Principal>
-      <Dependent Role="reviews">
-        <PropertyRef Name="sp_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__service_p__addre__2B3F6F97">
-    <End Role="addresses" Type="Self.addresses" Multiplicity="1">
+  <Association Name="FK__payment_d__dummy__398D8EEE">
+    <End Role="users" Type="myDacProjectModel.Store.users" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="service_providers" Type="Self.service_providers" Multiplicity="*" />
+    <End Role="payment_details" Type="myDacProjectModel.Store.payment_details" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="addresses">
-        <PropertyRef Name="address_id" />
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
       </Principal>
-      <Dependent Role="service_providers">
-        <PropertyRef Name="address_id" />
+      <Dependent Role="payment_details">
+        <PropertyRef Name="user_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__transacti__apt_i__48CFD27E">
-    <End Role="appointments" Type="Self.appointments" Multiplicity="1" />
-    <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="appointments">
-        <PropertyRef Name="apt_id" />
-      </Principal>
-      <Dependent Role="transactions">
-        <PropertyRef Name="apt_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__transacti__cust___45F365D3">
-    <End Role="customers" Type="Self.customers" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="customers">
-        <PropertyRef Name="cust_id" />
-      </Principal>
-      <Dependent Role="transactions">
-        <PropertyRef Name="cust_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__transacti__pd_id__47DBAE45">
-    <End Role="payment_details" Type="Self.payment_details" Multiplicity="0..1" />
-    <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
+  <Association Name="FK__transacti__payme__3C69FB99">
+    <End Role="payment_details" Type="myDacProjectModel.Store.payment_details" Multiplicity="0..1" />
+    <End Role="transactions" Type="myDacProjectModel.Store.transactions" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="payment_details">
         <PropertyRef Name="pd_id" />
       </Principal>
       <Dependent Role="transactions">
-        <PropertyRef Name="pd_id" />
+        <PropertyRef Name="payment_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__transacti__sp_id__46E78A0C">
-    <End Role="service_providers" Type="Self.service_providers" Multiplicity="0..1" />
-    <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
+  <Association Name="FK__reviews__sp_id__412EB0B6">
+    <End Role="service_providers" Type="myDacProjectModel.Store.service_providers" Multiplicity="1" />
+    <End Role="reviews" Type="myDacProjectModel.Store.reviews" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="service_providers">
         <PropertyRef Name="sp_id" />
       </Principal>
-      <Dependent Role="transactions">
+      <Dependent Role="reviews">
         <PropertyRef Name="sp_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="dacProjectModelStoreContainer">
-    <EntitySet Name="addresses" EntityType="Self.addresses" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="appointments" EntityType="Self.appointments" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="customers" EntityType="Self.customers" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="payment_details" EntityType="Self.payment_details" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="reviews" EntityType="Self.reviews" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="service_providers" EntityType="Self.service_providers" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="transactions" EntityType="Self.transactions" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__appointme__cust___3E52440B" Association="Self.FK__appointme__cust___3E52440B">
-      <End Role="customers" EntitySet="customers" />
-      <End Role="appointments" EntitySet="appointments" />
-    </AssociationSet>
-    <AssociationSet Name="FK__appointme__sp_id__3F466844" Association="Self.FK__appointme__sp_id__3F466844">
-      <End Role="service_providers" EntitySet="service_providers" />
-      <End Role="appointments" EntitySet="appointments" />
-    </AssociationSet>
-    <AssociationSet Name="FK__customers__addre__300424B4" Association="Self.FK__customers__addre__300424B4">
-      <End Role="addresses" EntitySet="addresses" />
-      <End Role="customers" EntitySet="customers" />
-    </AssociationSet>
-    <AssociationSet Name="FK__reviews__apt_id__5165187F" Association="Self.FK__reviews__apt_id__5165187F">
-      <End Role="appointments" EntitySet="appointments" />
-      <End Role="reviews" EntitySet="reviews" />
-    </AssociationSet>
-    <AssociationSet Name="FK__reviews__cust_id__4F7CD00D" Association="Self.FK__reviews__cust_id__4F7CD00D">
-      <End Role="customers" EntitySet="customers" />
-      <End Role="reviews" EntitySet="reviews" />
-    </AssociationSet>
-    <AssociationSet Name="FK__reviews__sp_id__5070F446" Association="Self.FK__reviews__sp_id__5070F446">
-      <End Role="service_providers" EntitySet="service_providers" />
-      <End Role="reviews" EntitySet="reviews" />
-    </AssociationSet>
-    <AssociationSet Name="FK__service_p__addre__2B3F6F97" Association="Self.FK__service_p__addre__2B3F6F97">
-      <End Role="addresses" EntitySet="addresses" />
-      <End Role="service_providers" EntitySet="service_providers" />
-    </AssociationSet>
-    <AssociationSet Name="FK__transacti__apt_i__48CFD27E" Association="Self.FK__transacti__apt_i__48CFD27E">
-      <End Role="appointments" EntitySet="appointments" />
-      <End Role="transactions" EntitySet="transactions" />
-    </AssociationSet>
-    <AssociationSet Name="FK__transacti__cust___45F365D3" Association="Self.FK__transacti__cust___45F365D3">
-      <End Role="customers" EntitySet="customers" />
-      <End Role="transactions" EntitySet="transactions" />
-    </AssociationSet>
-    <AssociationSet Name="FK__transacti__pd_id__47DBAE45" Association="Self.FK__transacti__pd_id__47DBAE45">
-      <End Role="payment_details" EntitySet="payment_details" />
-      <End Role="transactions" EntitySet="transactions" />
-    </AssociationSet>
-    <AssociationSet Name="FK__transacti__sp_id__46E78A0C" Association="Self.FK__transacti__sp_id__46E78A0C">
-      <End Role="service_providers" EntitySet="service_providers" />
-      <End Role="transactions" EntitySet="transactions" />
-    </AssociationSet>
-  </EntityContainer>
+  <Association Name="FK__service_p__user___29572725">
+    <End Role="users" Type="myDacProjectModel.Store.users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="service_providers" Type="myDacProjectModel.Store.service_providers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="service_providers">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

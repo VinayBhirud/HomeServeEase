@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace ServeEaseV2.Areas.HelpPage.ModelDescriptions
+namespace ServeEaseV3.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

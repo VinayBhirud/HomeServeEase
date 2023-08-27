@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using ServeEaseV2.Areas.HelpPage.ModelDescriptions;
-using ServeEaseV2.Areas.HelpPage.Models;
+using ServeEaseV3.Areas.HelpPage.ModelDescriptions;
+using ServeEaseV3.Areas.HelpPage.Models;
 
-namespace ServeEaseV2.Areas.HelpPage.Controllers
+namespace ServeEaseV3.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

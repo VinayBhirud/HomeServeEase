@@ -3,50 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Web.Http;
-using Newtonsoft.Json;
-using ServeEaseV2.Models;
-namespace ServeEaseV2.Controllers
+using ServeEaseV3.Models;
+namespace ServeEaseV3.Controllers
 {
     public class AddressController : ApiController
     {
-        dacProjectEntities db = new dacProjectEntities();
+        myDacProjectEntities1 db=new myDacProjectEntities1();
         // GET: api/Address
-        public IHttpActionResult GetAddress()
+        public List<address> Get()
         {
-            var combinedData = db.addresses.ToList();
-            var settings = new JsonSerializerSettings
-            {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            };
-
-            var json = JsonConvert.SerializeObject(combinedData, settings);
-
-            var response = Request.CreateResponse(HttpStatusCode.OK);
-            response.Content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            return ResponseMessage(response);
+            return db.addresses.ToList();
         }
 
-        // GET: api/Address/id
-        public IHttpActionResult GetAddressById(int id)
+        // GET: api/Address/5
+        public address Get(int id)
         {
-            var Data = db.addresses.Find(id);
-            var settings = new JsonSerializerSettings
-            {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            };
-
-            var json = JsonConvert.SerializeObject(Data, settings);
-
-            var response = Request.CreateResponse(HttpStatusCode.OK);
-            response.Content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            return ResponseMessage(response);
+            return db.addresses.Find(id);
         }
 
-        //POST: api/address
+        // POST: api/Address
         public IHttpActionResult PostAddress([FromBody] address add)
         {
             if (add == null)
@@ -73,11 +49,11 @@ namespace ServeEaseV2.Controllers
             {
                 return BadRequest("Update Failed!!!");
             }
-            address add1= db.addresses.Find(id);
+            address add1 = db.addresses.Find(id);
             try
             {
                 add1.city = add.city;
-                add1.state=add.state;
+                add1.state = add.state;
                 add1.address1 = add.address1;
                 add1.district = add.district;
                 add1.pin_code = add.pin_code;
@@ -94,8 +70,8 @@ namespace ServeEaseV2.Controllers
         // DELETE: api/Address/5
         public IHttpActionResult Delete(int id)
         {
-            address add1= db.addresses.Find(id);
-            if(add1 !=null)
+            address add1 = db.addresses.Find(id);
+            if (add1 != null)
             {
                 db.addresses.Remove(add1);
                 db.SaveChanges();
@@ -105,7 +81,7 @@ namespace ServeEaseV2.Controllers
             {
                 return BadRequest("Deletion Failed");
             };
-            
+
         }
     }
 }

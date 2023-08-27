@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using ServeEaseV2.Areas.HelpPage.ModelDescriptions;
-using ServeEaseV2.Areas.HelpPage.Models;
+using ServeEaseV3.Areas.HelpPage.ModelDescriptions;
+using ServeEaseV3.Areas.HelpPage.Models;
 
-namespace ServeEaseV2.Areas.HelpPage
+namespace ServeEaseV3.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace ServeEaseV2.Areas.HelpPage
+namespace ServeEaseV3.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

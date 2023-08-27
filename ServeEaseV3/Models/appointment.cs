@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ServeEaseV2.Models
+namespace ServeEaseV3.Models
 {
     using System;
     using System.Collections.Generic;
@@ -28,11 +28,6 @@ namespace ServeEaseV2.Models
         public System.DateTime order_date { get; set; }
         public System.DateTime apt_date { get; set; }
         public string apt_status { get; set; }
-        public string dummy_column1 { get; set; }
-        public string dummy_column2 { get; set; }
-        public string dummy_column3 { get; set; }
-        public string dummy_column4 { get; set; }
-        public string dummy_column5 { get; set; }
     
         public virtual customer customer { get; set; }
         public virtual service_providers service_providers { get; set; }

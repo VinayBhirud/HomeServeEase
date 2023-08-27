@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace ServeEaseV2
+namespace ServeEaseV3
 {
     public class BundleConfig
     {

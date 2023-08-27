@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace ServeEaseV2.Areas.HelpPage
+namespace ServeEaseV3.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

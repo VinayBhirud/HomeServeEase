@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ServeEaseV2.Models
+namespace ServeEaseV3.Models
 {
     using System;
     using System.Collections.Generic;
@@ -19,31 +19,15 @@ namespace ServeEaseV2.Models
         {
             this.appointments = new HashSet<appointment>();
             this.reviews = new HashSet<review>();
-            this.transactions = new HashSet<transaction>();
         }
     
         public int cust_id { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
-        public int address_id { get; set; }
-        public string email { get; set; }
-        public string mobile { get; set; }
-        public string password { get; set; }
-        public System.DateTime dob { get; set; }
-        public System.DateTime reg_date { get; set; }
-        public string profile_pic { get; set; }
-        public string dummy_column1 { get; set; }
-        public string dummy_column2 { get; set; }
-        public string dummy_column3 { get; set; }
-        public string dummy_column4 { get; set; }
-        public string dummy_column5 { get; set; }
+        public int user_id { get; set; }
     
-        public virtual address address { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<appointment> appointments { get; set; }
+        public virtual user user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<review> reviews { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<transaction> transactions { get; set; }
     }
 }

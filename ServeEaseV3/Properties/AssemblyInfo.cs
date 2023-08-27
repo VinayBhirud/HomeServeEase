@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ServeEaseV2")]
+[assembly: AssemblyTitle("ServeEaseV3")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ServeEaseV2")]
+[assembly: AssemblyProduct("ServeEaseV3")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("3d82e742-b851-4b84-848b-2a2aa06dd026")]
+[assembly: Guid("75448e04-cb45-4ccc-8739-0943afd11204")]
 
 // Version information for an assembly consists of the following four values:
 //

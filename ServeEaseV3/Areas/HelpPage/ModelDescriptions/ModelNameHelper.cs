@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace ServeEaseV2.Areas.HelpPage.ModelDescriptions
+namespace ServeEaseV3.Areas.HelpPage.ModelDescriptions
 {
     internal static class ModelNameHelper
     {

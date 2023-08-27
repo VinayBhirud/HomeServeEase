@@ -7,21 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ServeEaseV2.Models
+namespace ServeEaseV3.Models
 {
     using System;
     using System.Collections.Generic;
     
     public partial class address
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public address()
-        {
-            this.customers = new HashSet<customer>();
-            this.service_providers = new HashSet<service_providers>();
-        }
-    
         public int address_id { get; set; }
+        public int user_id { get; set; }
         public string city { get; set; }
         public string district { get; set; }
         public string state { get; set; }
@@ -33,9 +27,6 @@ namespace ServeEaseV2.Models
         public string dummy_column4 { get; set; }
         public string dummy_column5 { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<customer> customers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<service_providers> service_providers { get; set; }
+        public virtual user user { get; set; }
     }
 }

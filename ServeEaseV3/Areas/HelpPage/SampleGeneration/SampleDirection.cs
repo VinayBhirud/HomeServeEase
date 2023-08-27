@@ -1,4 +1,4 @@
-namespace ServeEaseV2.Areas.HelpPage
+namespace ServeEaseV3.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

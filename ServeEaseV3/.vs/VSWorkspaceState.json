@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\App_Start",
-    "\\Areas",
-    "\\Scripts",
-    "\\Views\\Home",
-    "\\Views\\Shared"
+    "\\Controllers"
   ],
+  "SelectedNode": "\\ServeEaseV3.sln",
   "PreviewInSolutionExplorer": false
 }

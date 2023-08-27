@@ -7,17 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ServeEaseV2.Models
+namespace ServeEaseV3.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dacProjectEntities : DbContext
+    public partial class myDacProjectEntities1 : DbContext
     {
-        public dacProjectEntities()
-            : base("name=dacProjectEntities")
+        public myDacProjectEntities1()
+            : base("name=myDacProjectEntities1")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -32,5 +33,6 @@ namespace ServeEaseV2.Models
         public virtual DbSet<review> reviews { get; set; }
         public virtual DbSet<service_providers> service_providers { get; set; }
         public virtual DbSet<transaction> transactions { get; set; }
+        public virtual DbSet<user> users { get; set; }
     }
 }

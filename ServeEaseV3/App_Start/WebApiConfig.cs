@@ -3,20 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace ServeEaseV2
+using System.Web.Http.Cors;
+
+
+
+
+namespace ServeEaseV3
 {
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
         {
+            
             // Web API configuration and services
+
+            config.EnableCors();
 
             // Web API routes
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "servease/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }
