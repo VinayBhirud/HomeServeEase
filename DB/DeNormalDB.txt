@@ -1,0 +1,167 @@
+CREATE TABLE addresses (
+  address_id INT IDENTITY(1, 1) PRIMARY KEY,
+  city VARCHAR(50) NOT NULL,
+  district VARCHAR(50) NOT NULL,
+  state VARCHAR(50) NOT NULL,
+  address VARCHAR(100) NOT NULL,
+  pin_code VARCHAR(10) NOT NULL,
+  dummy_column1 VARCHAR(50),
+  dummy_column2 VARCHAR(50),
+  dummy_column3 VARCHAR(50),
+  dummy_column4 VARCHAR(50),
+  dummy_column5 VARCHAR(50)
+);
+
+
+--------------------------------------------------------------------------------------------------------------------****----
+CREATE TABLE user_roles (
+  role_id INT IDENTITY(1, 1) PRIMARY KEY,
+  role VARCHAR(20) NOT NULL
+  dummy_column1 VARCHAR(50),
+  dummy_column2 VARCHAR(50),
+  dummy_column3 VARCHAR(50),
+  dummy_column4 VARCHAR(50),
+  dummy_column5 VARCHAR(50)
+);
+----------------------------------------------------------------------------------------------------------------****---------
+CREATE TABLE payment_details (
+  pd_id INT IDENTITY(1, 1) PRIMARY KEY,
+  bank_name VARCHAR(30) NOT NULL,
+  branch_name VARCHAR(50) NOT NULL,
+  ifsc_code VARCHAR(20) NOT NULL,
+  acc_no VARCHAR(16) NOT NULL,
+  card_number VARCHAR(16) NOT NULL,
+  card_expiry DATE NOT NULL,
+  card_cvv VARCHAR(4) NOT NULL,
+  dummy_column1 VARCHAR(50),
+  dummy_column2 VARCHAR(50),
+  dummy_column3 VARCHAR(50),
+  dummy_column4 VARCHAR(50),
+  dummy_column5 VARCHAR(50)
+);
+-------------------------------------------------------------------------------------------------------****------------
+CREATE TABLE login (
+  login_id INT IDENTITY(1, 1) PRIMARY KEY,
+  email VARCHAR(100) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  profession VARCHAR(50),
+  
+  FOREIGN KEY (email) REFERENCES customers(email),
+  FOREIGN KEY (email) REFERENCES service_providers(email),
+  FOREIGN KEY (address_id) REFERENCES addresses(address_id)ON UPDATE CASCADE ON DELETE CASCADE
+);
+---------------------------------------------------------------------------------------------------------****----------
+CREATE TABLE service_providers (
+  sp_id INT IDENTITY(1, 1) PRIMARY KEY,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  address_id INT NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  mobile VARCHAR(20) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  dob DATE NOT NULL,
+  reg_date DATETIME NOT NULL,
+  profile_pic VARCHAR(100),
+
+  profession VARCHAR(50),
+  experience INT,
+  expertise VARCHAR(100),
+  description VARCHAR(200),
+  charges DECIMAL(10, 2) DEFAULT 0.0,
+  other_images VARCHAR(100) ,
+
+  dummy_column1 VARCHAR(50),
+  dummy_column2 VARCHAR(50),
+  dummy_column3 VARCHAR(50),
+  dummy_column4 VARCHAR(50),
+  dummy_column5 VARCHAR(50),
+  UNIQUE NONCLUSTERED (email),
+  UNIQUE NONCLUSTERED (mobile),
+  FOREIGN KEY (address_id) REFERENCES addresses(address_id)ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+-----------------------------------------------------------------------------------------------------------------------
+CREATE TABLE customers (
+  cust_id INT IDENTITY(1, 1) PRIMARY KEY,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  address_id INT NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  mobile VARCHAR(20) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  dob DATE NOT NULL,
+  reg_date DATETIME NOT NULL,
+  profile_pic VARCHAR(100),
+
+  dummy_column1 VARCHAR(50),
+  dummy_column2 VARCHAR(50),
+  dummy_column3 VARCHAR(50),
+  dummy_column4 VARCHAR(50),
+  dummy_column5 VARCHAR(50),
+  UNIQUE NONCLUSTERED (email),
+  UNIQUE NONCLUSTERED (mobile),
+  FOREIGN KEY (address_id) REFERENCES addresses(address_id)ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+-----------------------------------------------------------------------------------------------------------------------
+CREATE TABLE appointments (
+  apt_id INT IDENTITY(1, 1) PRIMARY KEY,
+  cust_id INT NOT NULL,
+  sp_id INT NOT NULL,
+  ord_description VARCHAR(200),
+  order_date DATETIME NOT NULL,
+  apt_date DATETIME NOT NULL,
+  apt_status VARCHAR(20) NOT NULL,
+  dummy_column1 VARCHAR(50),
+  dummy_column2 VARCHAR(50),
+  dummy_column3 VARCHAR(50),
+  dummy_column4 VARCHAR(50),
+  dummy_column5 VARCHAR(50),
+  FOREIGN KEY (cust_id) REFERENCES customers(cust_id)ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY (sp_id) REFERENCES service_providers(sp_id)
+
+);
+
+
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE transactions (
+  tx_id INT IDENTITY(1, 1) PRIMARY KEY,
+  cust_id INT,
+  sp_id INT,
+  pd_id INT,
+  apt_id INT NOT NULL,
+  payment_token_id INT,
+  amount DECIMAL(10, 2),
+  trans_status VARCHAR(20),
+  payment_date DATETIME NOT NULL,
+  dummy_column1 VARCHAR(50),
+  dummy_column2 VARCHAR(50),
+  dummy_column3 VARCHAR(50),
+  dummy_column4 VARCHAR(50),
+  dummy_column5 VARCHAR(50),
+  FOREIGN KEY (cust_id) REFERENCES customers(cust_id)ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY (sp_id) REFERENCES service_providers(sp_id),
+  FOREIGN KEY (pd_id) REFERENCES payment_details(pd_id),
+  FOREIGN KEY (apt_id) REFERENCES appointments(apt_id)
+);
+
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE reviews (
+  review_id INT IDENTITY(1, 1) PRIMARY KEY,
+  cust_id INT NOT NULL,
+  sp_id INT NOT NULL,
+  apt_id INT NOT NULL,
+  review VARCHAR(200),
+  complaint VARCHAR(200),
+  ratings INT,
+  dummy_column1 VARCHAR(50),
+  dummy_column2 VARCHAR(50),
+  dummy_column3 VARCHAR(50),
+  dummy_column4 VARCHAR(50),
+  dummy_column5 VARCHAR(50),
+  FOREIGN KEY (cust_id) REFERENCES customers(cust_id)ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY (sp_id) REFERENCES service_providers(sp_id),
+  FOREIGN KEY (apt_id) REFERENCES appointments(apt_id)
+);
+
+
